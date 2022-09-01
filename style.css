@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .loginBar{
     background-color: #dafab2;
     padding: 20px;
@@ -6,3 +7,13 @@
     font-family: 'Zilla Slab', serif;
 }
 
+=======
+.loginBar{
+    background-color: #dafab2;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-family: 'Zilla Slab', serif;
+}
+
+>>>>>>> 58ce11d61ae40c77b0495df7f38984179c29c4ba
