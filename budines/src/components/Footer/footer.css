@@ -1,3 +1,11 @@
 footer{
-    color: orange;
+    color: black;
+    display: flex;
+    justify-content:space-around;
+}
+
+.carrito{
+display: flex;
+width: 10px;
+height: 80px;
 }

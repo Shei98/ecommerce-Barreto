@@ -1,22 +1,15 @@
 import './App.css';
 import Footer from './components/Footer/Footer';
+import Header from "./components/Header/Header";
+import ItemListContainer from './components/Products/ItemListContainer';
 
 function App() {
 
-  let styleH1 ={
-    color: "white",
-  textDecoration: "underline",
-  marginTop: "100px"
-  }
-
-
   return (
     <div className="App">
-      <header className="App-header">
-      <h1 style={styleH1}> Budines Sheila </h1>
-      <img src="/assets/Logo sheilaBudines.png" className="App-logo" alt="logo" />
-      </header>
       <Footer/>
+      <Header />
+      <ItemListContainer greeting="Mi tienda de budines"/>
     </div>
   );
 }
