@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import Card from "./Card";
 
 function ItemListContainer({greeting}) {
+
+  function getItemsFromDatabase(){
+    console.log("Items listos!");
+  };
+  
+
+  useEffect(
+    () =>{
+      getItemsFromDatabase();
+    }
+      ,[]
+  )
+  
   return (
     <div>
       <h1> {greeting} </h1>
@@ -23,6 +37,8 @@ function ItemListContainer({greeting}) {
         img="../../assets/Chocolate.jpg"
         />
       </div>
+
+
      </div>
   );
 }

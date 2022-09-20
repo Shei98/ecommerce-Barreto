@@ -1,6 +1,6 @@
 import Logo from '../Logo/Logo';
 import CartWidget from './CartWidget';
-function Header(){
+function Header (){
     let title = "Budines Sheila";
     return (
         <header className="App-header">

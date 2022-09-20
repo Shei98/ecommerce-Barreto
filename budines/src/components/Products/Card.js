@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Button/Button';
+import ItemCount from '../ItemCount/ItemCount';
 import "./card.css";
 
 function Card ({title, description, img, price}) {
@@ -13,10 +14,14 @@ function Card ({title, description, img, price}) {
             <p>{description}</p>
             <h4>{price} </h4>
         </div>
-        <Button color="red">
+
+        <Button>
         Ver más
         </Button>
+
+        <ItemCount initial={0} stock={10}  />
     </div> 
+    
   )
 }
 
