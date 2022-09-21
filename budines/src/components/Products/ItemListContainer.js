@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import Item from "./Item";
 import getItems from "../../services/mockAPI";
 
-function ItemListContainer({ greeting }) {
-  let [data, setData] = useState([]);
+export default function ItemListContainer({ greeting }) {
+  const [data, setData] = useState([]);
 
    useEffect(
     () =>{
@@ -20,12 +20,13 @@ function ItemListContainer({ greeting }) {
       <div className="container">
         {data.map((item) => {
           return (
-            <Card
+            <Item
               key={item.id}
               price={item.price}
               title={item.title}
               img={item.img}
               description={item.description}
+              stock={item.stock}
             />
           );
         })}
@@ -35,4 +36,3 @@ function ItemListContainer({ greeting }) {
 }
 
 
-export default ItemListContainer;
