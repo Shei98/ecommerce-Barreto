@@ -1,46 +1,38 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import getItems from "../../services/mockAPI";
 
-function ItemListContainer({greeting}) {
+function ItemListContainer({ greeting }) {
+  let [data, setData] = useState([]);
 
-  function getItemsFromDatabase(){
-    console.log("Items listos!");
-  };
-  
-
-  useEffect(
+   useEffect(
     () =>{
-      getItemsFromDatabase();
-    }
-      ,[]
-  )
-  
+      getItems().then((respuestaDatos) => {
+      setData(respuestaDatos);
+    });
+    },
+    []
+   ) 
+
   return (
     <div>
       <h1> {greeting} </h1>
       <div className="container">
-        <Card title="Banana con chips"
-          price="$320"
-          description="Budín casero de banana con chips de chocolate"
-          img="../../assets/Banana.jpg"
-        />
-        <Card title="Coco"
-          price="$250"
-          description="Budín de coco con saborizante y coco rallado"
-          img="../../assets/Coco.jpg"
-        />
-        <Card 
-        title="Chocolate" 
-        price="$300"
-        description="Budín de chocolate con cacao amargo y trozos de chocolate"
-        img="../../assets/Chocolate.jpg"
-        />
+        {data.map((item) => {
+          return (
+            <Card
+              key={item.id}
+              price={item.price}
+              title={item.title}
+              img={item.img}
+              description={item.description}
+            />
+          );
+        })}
       </div>
-
-
-     </div>
+    </div>
   );
 }
+
 
 export default ItemListContainer;
