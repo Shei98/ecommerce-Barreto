@@ -54,3 +54,16 @@ export default function getItems(fromData) {
     }, 1500);
   });
 }
+
+export function getSingleProduct(idItem) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let itemFind = data.find( item => item.id === idItem)
+      if(itemFind)
+      resolve (itemFind);
+      else 
+      reject(new Error("Ítem no encontrado"));
+      // resolve(data[2]);
+    }, 1500);
+  });
+}
