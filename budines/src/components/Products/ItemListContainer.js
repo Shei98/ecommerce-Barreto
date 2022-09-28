@@ -5,14 +5,11 @@ import getItems from "../../services/mockAPI";
 export default function ItemListContainer({ greeting }) {
   const [data, setData] = useState([]);
 
-   useEffect(
-    () =>{
-      getItems().then((respuestaDatos) => {
+  useEffect(() => {
+    getItems().then((respuestaDatos) => {
       setData(respuestaDatos);
     });
-    },
-    []
-   ) 
+  }, []);
 
   return (
     <div>
@@ -34,5 +31,3 @@ export default function ItemListContainer({ greeting }) {
     </div>
   );
 }
-
-
