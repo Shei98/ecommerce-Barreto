@@ -1,17 +1,42 @@
-.nav-menu{
+/* .nav-menu{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 60%;
-    margin: 0;
+    justify-content:space-around;
+    align-items:center;
+    width: 100%;
+    margin: 0;  
     height: 50px;
-    background-color: rgb(239, 239, 91);
+    background-color: rgb(189, 197, 84);
     top: 0;
+  } */
+
+.link {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.3em;
+  color: rgb(19, 19, 18);
+}
+.nav-menu {
+  list-style-type: none;
+  margin: 0.7rem;
+  background-color: #ecde8f;
+  display: flex;
+  justify-content:space-around;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.menu li {
+  display: inline-block;
+  text-align: center;
+  margin: 0.7rem;
+  background-color: #ada5a5;
+  padding: 0.7rem;
+}
+.menu li link {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+}
+.menu li link:hover {
+  color: white;
 }
 
-a{
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.3rem;
-    color: black
-}

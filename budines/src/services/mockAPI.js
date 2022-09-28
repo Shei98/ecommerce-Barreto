@@ -15,7 +15,7 @@ const data = [
     description: "Budín de coco con saborizante y coco rallado",
     img: "../../assets/Coco.jpg",
     stock: 5,
-    category: "simple",
+    category: "simples",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const data = [
     description: "Budín de chocolate con cacao amargo y trozos de chocolate",
     img: "../../assets/Chocolate.jpg",
     stock: 6,
-    category: "simple",
+    category: "simples",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const data = [
     description: "Budín casero de limón con esencia y ralladura de limón",
     img: "../../assets/Limón.jpg",
     stock: 7,
-    category: "simple",
+    category: "simples",
   },
   {
     id: 5,
@@ -57,13 +57,30 @@ export default function getItems(fromData) {
 
 export function getSingleProduct(idItem) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      let itemFind = data.find( item => item.id === idItem)
-      if(itemFind)
-      resolve (itemFind);
-      else 
-      reject(new Error("Ítem no encontrado"));
-      // resolve(data[2]);
-    }, 1500);
+
+    let itemFind = data.find((item) => {
+      return item.id === idItem;
+    });
+    setTimeout( () => {
+      if (itemFind) resolve(itemFind);
+      else reject(new Error("item no encontrado"));
+    }, 1500)
+
   });
+}
+
+export function getItemsByCategory(cat) {
+  return new Promise((resolve, reject) => {
+
+    let itemFind = data.filter((item) => {
+      return item.category === cat;
+    });
+    setTimeout( () => {
+      console.log("Se encontró:",itemFind)
+      if (itemFind) resolve(itemFind);
+      else reject(new Error("item no encontrado"));
+    }, 1500)
+
+  });
+
 }
