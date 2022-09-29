@@ -42,7 +42,7 @@ const data = [
     description:
       "Budín marmolado, mezcla de sabores vainilla y chocolate amargo",
     img: "../../assets/Marmolado.jpg",
-    stock: 0,
+    stock: 5,
     category: "mezclas",
   },
 ];
