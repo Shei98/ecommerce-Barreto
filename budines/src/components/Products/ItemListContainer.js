@@ -17,14 +17,16 @@ export default function ItemListContainer({ greeting }) {
       <div className="container">
         {data.map((item) => {
           return (
-            <Item
-              key={item.id}
-              price={item.price}
-              title={item.title}
-              img={item.img}
-              description={item.description}
-              stock={item.stock}
-            />
+            item.stock > 0 && (
+              <Item
+                key={item.id}
+                price={item.price}
+                title={item.title}
+                img={item.img}
+                description={item.description}
+                stock={item.stock}
+              />
+            )
           );
         })}
       </div>

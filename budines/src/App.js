@@ -7,7 +7,6 @@ import FlexWrapper from "./components/FlexWrapper/FlexWrapper";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
- 
 
   return (
     <div className="App">
