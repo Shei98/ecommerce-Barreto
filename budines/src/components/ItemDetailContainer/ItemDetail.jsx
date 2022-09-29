@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { getSingleProduct } from "../../services/mockAPI";
+import {useParams} from "react-router-dom";
 
 function ItemDetail() {
   const [data, setData] = useState({});
 
+
+  const { id } = useParams();
   useEffect(() => {
-    getSingleProduct(1).then((respuestaDatos) => setData(respuestaDatos));
-  }, []);
+    getSingleProduct(id).then((respuestaDatos) => setData(respuestaDatos));
+  }, [id]);
 
   return (
     <div className="card">

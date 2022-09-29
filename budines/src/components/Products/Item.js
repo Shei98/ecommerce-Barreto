@@ -1,8 +1,11 @@
 import React from "react";
+import Button from "../Button/Button";
 import ItemCount from "../ItemCount/ItemCount";
 import "./card.css";
+import { Link } from "react-router-dom";
 
-function Item({ title, description, img, price }) {
+function Item({ title, description, img, price, stock, id }) {
+  const urlDetalle = `/category/${id}`;
   return (
     <div className="card">
       <div className="card-img">
@@ -13,8 +16,10 @@ function Item({ title, description, img, price }) {
         <p>{description}</p>
         <h4>{price} </h4>
       </div>
-
-      <ItemCount initial={0} stock={10} />
+      <Link to={urlDetalle}>
+        <Button> Ver más </Button>
+      </Link>
+      <ItemCount initial={1} stock={stock} />
     </div>
   );
 }

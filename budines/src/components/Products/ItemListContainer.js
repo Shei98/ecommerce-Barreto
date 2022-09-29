@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
-import getItems from "../../services/mockAPI";
+import  getItems,{ getItemsByCategory } from "../../services/mockAPI";
+import { useParams } from "react-router-dom";
 
 export default function ItemListContainer({ greeting }) {
-  const [data, setData] = useState([]);
+
+  let [data, setData] = useState([]);
+
+  const {cat} = useParams();
+  console.log(cat);
 
   useEffect(() => {
-    getItems().then((respuestaDatos) => {
-      setData(respuestaDatos);
-    });
-  }, []);
+    if (cat === undefined) {
+      getItems().then((respuestaDatos) => setData(respuestaDatos));
+    } else {
+      getItemsByCategory(cat).then((respuestaDatos) => setData(respuestaDatos));
+    }
+  }, [cat]);
 
   return (
     <div>
@@ -17,14 +24,17 @@ export default function ItemListContainer({ greeting }) {
       <div className="container">
         {data.map((item) => {
           return (
-            <Item
-              key={item.id}
-              price={item.price}
-              title={item.title}
-              img={item.img}
-              description={item.description}
-              stock={item.stock}
-            />
+            item.stock > 0 && (
+              <Item
+                key={item.id}
+                id={item.id}
+                price={item.price}
+                title={item.title}
+                img={item.img}
+                description={item.description}
+                stock={item.stock}
+              />
+            )
           );
         })}
       </div>
