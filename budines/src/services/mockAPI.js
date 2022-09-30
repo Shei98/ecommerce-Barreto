@@ -57,30 +57,25 @@ export default function getItems(fromData) {
 
 export function getSingleProduct(idItem) {
   return new Promise((resolve, reject) => {
-
     let itemFind = data.find((item) => {
-      return item.id === idItem;
+      return item.id === parseInt(idItem);
     });
-    setTimeout( () => {
+    setTimeout(() => {
       if (itemFind) resolve(itemFind);
       else reject(new Error("item no encontrado"));
-    }, 1500)
-
+    }, 1500);
   });
 }
 
 export function getItemsByCategory(cat) {
   return new Promise((resolve, reject) => {
-
     let itemFind = data.filter((item) => {
       return item.category === cat;
     });
-    setTimeout( () => {
-      console.log("Se encontró:",itemFind)
+    setTimeout(() => {
+      console.log("Se encontró:", itemFind);
       if (itemFind) resolve(itemFind);
       else reject(new Error("item no encontrado"));
-    }, 1500)
-
+    }, 1500);
   });
-
 }

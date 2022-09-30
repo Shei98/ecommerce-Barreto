@@ -4,22 +4,23 @@ import { getSingleProduct } from "../../services/mockAPI";
 import { useParams } from "react-router-dom";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 
-function ItemDetail({item}) {
-    let estado = false;
+function ItemDetail({ item }) {
+  let estado = false;
 
   const handleAddToCart = (quantity) => {
     console.log(quantity);
-  }
+  };
 
   const [data, setData] = useState({});
-
   const { id } = useParams();
   useEffect(() => {
-    getSingleProduct(id).then((respuestaDatos) => setData(respuestaDatos));
+    getSingleProduct(id).then((respuestaDatos) => {
+      console.log(respuestaDatos);
+      setData(respuestaDatos);
+    });
   }, [id]);
-
   return (
-    <FlexWrapper rows={true} >
+    <FlexWrapper rows={true}>
       <div className="card">
         <div className="card-img">
           <img src={data.img} alt="card img"></img>

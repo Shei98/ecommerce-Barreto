@@ -5,7 +5,7 @@ import "./card.css";
 import { Link } from "react-router-dom";
 
 function Item({ title, description, img, price, stock, id }) {
-  const urlDetalle = `/category/${id}`;
+  const urlDetalle = `/budines/${id}`;
   return (
     <div className="card">
       <div className="card-img">
