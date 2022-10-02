@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { getSingleProduct } from "../../services/mockAPI";
 import { useParams } from "react-router-dom";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
+import { cartCtx } from "../../context/cartContext";
 
 function ItemDetail({ item }) {
   let estado = false;
+  const { addItem } = useContext(cartCtx);
 
   const handleAddToCart = (quantity) => {
-    console.log(quantity);
+    addItem(item, quantity);
   };
 
   const [data, setData] = useState({});
