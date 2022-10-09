@@ -7,7 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContextProvider from "./context/cartContext";
 import CartView from "./components/CartView/CartView";
 
+import { firestore } from "./services/firestore";
+
 function App() {
+
+  console.log("Firebase:", firestore);
   return (
     <CartContextProvider>
       <BrowserRouter>
