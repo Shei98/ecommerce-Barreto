@@ -40,3 +40,12 @@ small {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.priceTag{
+  color: black;
+  font-weight: bold;
+}
+
+.offerTag{
+  color: green
+}

@@ -1,0 +1,114 @@
+.cartview-emptycard-text {
+    margin-top: 10rem;
+    display: flex;
+}
+
+.cartview-link-home {
+    margin-left: 1rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: #000;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.cartview-link-home:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.cartview-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 2rem;
+    margin-top: 8rem;
+    border: 1px solid #fff;
+    gap: 3rem;
+}
+
+.cartview-iyt {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cartview-item {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.cartview-img {
+    width: 68px;
+    height: 65px;
+}
+
+
+.cartview-title {
+    font-size: 1.5em;
+}
+
+.cartview-price {
+    font-size: 1.35em;
+}
+
+.cartview-count {
+    font-size: 1.3em;
+}
+
+.cartview-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.cartview-description-info {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.cartview-button-delete {
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+}
+
+.cartview-total-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cartview-button-emptycard {
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.3s;
+    padding: 0.2rem 0.5rem;
+}
+
+.cartview-button-emptycard:hover {
+    background-color: rgb(179, 54, 54);
+    color: #fff;
+}
+
+
+.cartview-button-finish {
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.3s;
+    padding: 0.2rem 0.5rem;
+}
+
+.cartview-button-finish:hover {
+    background-color: rgb(61, 138, 61);
+    color: #fff;
+}

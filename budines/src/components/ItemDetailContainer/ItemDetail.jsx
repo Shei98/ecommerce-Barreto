@@ -1,26 +1,22 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
-import { getSingleProduct } from "../../services/mockAPI";
-import { useParams } from "react-router-dom";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 import { cartCtx } from "../../context/cartContext";
 
 function ItemDetail({ item }) {
-  let estado = false;
+  const [isInCart, setIsInCart] = useState(false);
   const { addItem } = useContext(cartCtx);
 
-  const handleAddToCart = (quantity) => {
+  function handleAddToCart(quantity) {
     addItem(item, quantity);
+    setIsInCart(true);
+  }
+  const stylePrice = {
+    color: item.offer ? "#22cc77" : "#333333",
   };
 
-  const [data, setData] = useState({});
-  const { id } = useParams();
-  useEffect(() => {
-    getSingleProduct(id).then((respuestaDatos) => {
-      console.log(respuestaDatos);
-      setData(respuestaDatos);
-    });
-  }, [id]);
+  const [data] = useState({});
+
   return (
     <FlexWrapper rows={true}>
       <div className="card">
@@ -30,11 +26,14 @@ function ItemDetail({ item }) {
         <div className="card-detail">
           <h3>{data.title}</h3>
           <p>{data.description}</p>
-          <h4>{data.price} </h4>
+          <h4 style={stylePrice}>{data.price} </h4>
         </div>
+        {item.stock === 0 && (
+          <span style={{ color: "red" }}>Producto sin stock</span>
+        )}
 
-        {estado === false ? (
-          <ItemCount initial={0} stock={10} onAddToCart={handleAddToCart} />
+        {isInCart === false ? (
+          <ItemCount stock={10} onAddToCart={handleAddToCart} />
         ) : (
           <button>Finalizar Compra</button>
         )}

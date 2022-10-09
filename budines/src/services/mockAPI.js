@@ -2,7 +2,7 @@ const data = [
   {
     id: 1,
     title: "Banana con chips",
-    price: "$320",
+    price: "320",
     description: "Budín casero de banana con chips de chocolate",
     img: "/assets/Banana.jpg",
     stock: 4,
@@ -10,8 +10,9 @@ const data = [
   },
   {
     id: 2,
+    offer: true,
     title: "Coco",
-    price: "$250",
+    price: "250",
     description: "Budín de coco con saborizante y coco rallado",
     img: "../../assets/Coco.jpg",
     stock: 5,
@@ -20,7 +21,7 @@ const data = [
   {
     id: 3,
     title: "Chocolate",
-    price: "$300",
+    price: "300",
     description: "Budín de chocolate con cacao amargo y trozos de chocolate",
     img: "../../assets/Chocolate.jpg",
     stock: 6,
@@ -29,7 +30,7 @@ const data = [
   {
     id: 4,
     title: "Limón",
-    price: "$310",
+    price: "310",
     description: "Budín casero de limón con esencia y ralladura de limón",
     img: "../../assets/Limón.jpg",
     stock: 7,
@@ -38,7 +39,7 @@ const data = [
   {
     id: 5,
     title: "Marmolado",
-    price: "$330",
+    price: "330",
     description:
       "Budín marmolado, mezcla de sabores vainilla y chocolate amargo",
     img: "../../assets/Marmolado.jpg",
