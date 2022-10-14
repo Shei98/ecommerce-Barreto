@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,5 +15,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 
-export default app 
-export { firestore };
+function getItems(){
+const miColleccion = collection("budines", firestore);
+let snapshotDB = getDocs(miColleccion);
+return snapshotDB;
+}
+
+export default firestore ;
