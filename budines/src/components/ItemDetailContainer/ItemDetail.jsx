@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 import { cartCtx } from "../../context/cartContext";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
   const [isInCart, setIsInCart] = useState(false);
@@ -15,27 +16,25 @@ function ItemDetail({ item }) {
     color: item.offer ? "#22cc77" : "#333333",
   };
 
-  const [data] = useState({});
-
   return (
     <FlexWrapper rows={true}>
       <div className="card">
         <div className="card-img">
-          <img src={data.img} alt="card img"></img>
+          <img src={item.img} alt="card img"></img>
         </div>
         <div className="card-detail">
-          <h3>{data.title}</h3>
-          <p>{data.description}</p>
-          <h4 style={stylePrice}>{data.price} </h4>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <h4 style={stylePrice}>{item.price} </h4>
         </div>
         {item.stock === 0 && (
           <span style={{ color: "red" }}>Producto sin stock</span>
         )}
 
-        {isInCart === false ? (
-          <ItemCount stock={10} onAddToCart={handleAddToCart} />
+        {isInCart ? (
+          <Link to="/cart">Ir al carrito</Link>
         ) : (
-          <button>Finalizar Compra</button>
+          <ItemCount stock={10} onAddToCart={handleAddToCart} />
         )}
       </div>
     </FlexWrapper>

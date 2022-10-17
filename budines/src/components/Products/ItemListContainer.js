@@ -3,7 +3,7 @@ import Item from "./Item";
 import { useParams } from "react-router-dom";
 import { Momentum } from "@uiball/loaders";
 
-import getItems, { getItemsByCategory } from "../../services/firestore";
+import {getItems, getItemsByCategory } from "../../services/mockAPI";
 
 function ItemListContainer() {
   const [data, setData] = useState([]);

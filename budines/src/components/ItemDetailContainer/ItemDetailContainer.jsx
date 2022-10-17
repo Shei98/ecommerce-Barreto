@@ -1,6 +1,6 @@
 import ItemDetail from "./ItemDetail";
 import React, { useState, useEffect } from "react";
-import { getSingleItem } from "../../services/mockAPI";
+import { getSingleProduct } from "../../services/mockAPI";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
@@ -11,7 +11,7 @@ function ItemDetailContainer() {
   const { id } = useParams();
 
   useEffect(() => {
-    getSingleItem(id)
+    getSingleProduct(id)
       .then((respuestDatos) => setData(respuestDatos))
       .catch((errormsg) => {
         setError(errormsg.message);
