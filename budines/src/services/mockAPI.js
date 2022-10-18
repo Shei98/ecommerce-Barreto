@@ -24,7 +24,7 @@ const data = [
     price: "300",
     description: "Budín de chocolate con cacao amargo y trozos de chocolate",
     img: "../../assets/Chocolate.jpg",
-    stock: 6,
+    stock: 0,
     category: "simples",
   },
   {
@@ -45,6 +45,16 @@ const data = [
     img: "../../assets/Marmolado.jpg",
     stock: 5,
     category: "mezclas",
+  },
+  {
+    id: 6,
+    title: "Naranja",
+    price: "310",
+    description:
+      "Budín de naranja, con pulpa, jugo y saborizante de naranja",
+    img: "../../assets/Naranja (3).jpg",
+    stock: 6,
+    category: "simples",
   },
 ];
 

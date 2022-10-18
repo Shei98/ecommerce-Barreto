@@ -25,7 +25,7 @@ function ItemDetail({ item }) {
         <div className="card-detail">
           <h3>{item.title}</h3>
           <p>{item.description}</p>
-          <h4 style={stylePrice}>{item.price} </h4>
+          <h4 style={stylePrice}>${item.price} </h4>
         </div>
         {item.stock === 0 && (
           <span style={{ color: "red" }}>Producto sin stock</span>
@@ -34,7 +34,7 @@ function ItemDetail({ item }) {
         {isInCart ? (
           <Link to="/cart">Ir al carrito</Link>
         ) : (
-          <ItemCount stock={10} onAddToCart={handleAddToCart} />
+          <ItemCount initial={1} stock={item.stock} onAddToCart={handleAddToCart} />
         )}
       </div>
     </FlexWrapper>

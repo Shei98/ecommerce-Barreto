@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { cartCtx } from "../../context/cartContext";
+import Button from "../Button/Button";
 import "./CartView.css";
 
 function CartView() {
@@ -16,11 +17,12 @@ function CartView() {
   return (
     <div>
       {cart.map((item) => (
-        <div>
+        <div className="containerCartView">
           <img className="cartview-img" src={item.img} alt={item.title} />
-          <p>{item.price}</p>
-          <p>{item.count}</p>
-          <strong>{item.price * item.count}</strong>
+          <h3>{item.title} </h3>
+          <h3>${item.price}</h3>
+          <h3>{item.count}</h3>
+          <strong>${item.price * item.count}</strong>
           <span
             className="cartview-button-delete"
             onClick={() => removeFromCart(item.id)}
@@ -29,10 +31,10 @@ function CartView() {
       ))}
 
       <div className="cartview-total-container">
-        <button className="cartview-button-emptycard" onClick={clearCart}>
+        <Button className="cartview-button-emptycard" onClick={clearCart}>
           Vaciar carrito
-        </button>
-        <button className="cartview-button-finish">Finalizar Compra</button>
+        </Button>
+        <Button className="cartview-button-finish">Finalizar Compra</Button>
       </div>
     </div>
   );
