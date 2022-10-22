@@ -21,14 +21,21 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
+const database = getFirestore(app);
+const myCollection = collection(database, "budines");
+
 
 export async function getItems() {
-  const colleccionRef = collection("budines", firestore);
-  let respuesta = await getDocs(colleccionRef);
+  const querySnapshot = await getDocs(collection(database, "budines"));
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
 
+  let respuesta = await getDocs(myCollection);
+console.log(respuesta, "respuestta");
   let dataDocs = respuesta.docs.map((documento) => {
-    let docFormateado = { ...documento.data(), id: documento.id};
+    
+    let docFormateado = { ...documento.data(), id: documento.id };
     return docFormateado;
   });
   return dataDocs;
@@ -36,7 +43,7 @@ export async function getItems() {
 
 export async function getSingleItem(idParams) {
   try {
-    const docRef = doc(firestore, "alquileres", idParams);
+    const docRef = doc(database, "budines", idParams);
     const docSnapshot = await getDoc(docRef);
     return { ...docSnapshot.data(), id: docSnapshot.id };
   } catch (error) {
@@ -45,7 +52,7 @@ export async function getSingleItem(idParams) {
 }
 
 export async function getItemsByCategory(catParams) {
-  const collectionRef = collection(firestore, "alquileres");
+  const collectionRef = collection(database, "budines");
   const queryCategory = query(
     collectionRef,
     where("category", "==", catParams)
@@ -61,4 +68,4 @@ export async function getItemsByCategory(catParams) {
   return dataDocs;
 }
 
-export default firestore;
+export default database;
