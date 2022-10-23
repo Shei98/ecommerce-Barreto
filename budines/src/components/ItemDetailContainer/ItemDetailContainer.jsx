@@ -1,6 +1,6 @@
 import ItemDetail from "./ItemDetail";
 import React, { useState, useEffect } from "react";
-import { getSingleProduct } from "../../services/mockAPI";
+import { getSingleItem } from "../../services/firestore";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
@@ -11,7 +11,7 @@ function ItemDetailContainer() {
   const { id } = useParams();
 
   useEffect(() => {
-    getSingleProduct(id)
+    getSingleItem(id)
       .then((respuestDatos) => setData(respuestDatos))
       .catch((errormsg) => {
         setError(errormsg.message);
@@ -36,7 +36,7 @@ function ItemDetailContainer() {
 
   return (
     <div>
-      <ItemDetail item={data} />;
+      <ItemDetail item={data} />
     </div>
   );
 }

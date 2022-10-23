@@ -7,6 +7,7 @@ import {
   getDoc,
   query,
   where,
+  addDoc,
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
@@ -22,11 +23,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
-const myCollection = collection(database, "budines");
+const myCollection = collection(database, "budines ");
 
 
 export async function getItems() {
-  const querySnapshot = await getDocs(collection(database, "budines"));
+  const querySnapshot = await getDocs(collection(database, "budines "));
   querySnapshot.forEach((doc) => {
     console.log(`${doc.id} => ${doc.data()}`);
   });
@@ -43,7 +44,7 @@ console.log(respuesta, "respuestta");
 
 export async function getSingleItem(idParams) {
   try {
-    const docRef = doc(database, "budines", idParams);
+    const docRef = doc(database, "budines ", idParams);
     const docSnapshot = await getDoc(docRef);
     return { ...docSnapshot.data(), id: docSnapshot.id };
   } catch (error) {
@@ -52,7 +53,7 @@ export async function getSingleItem(idParams) {
 }
 
 export async function getItemsByCategory(catParams) {
-  const collectionRef = collection(database, "budines");
+  const collectionRef = collection(database, "budines ");
   const queryCategory = query(
     collectionRef,
     where("category", "==", catParams)
@@ -66,6 +67,13 @@ export async function getItemsByCategory(catParams) {
   });
 
   return dataDocs;
+}
+
+export async function createBuyOrder(orderData) {
+  const collectionRef = collection(database, "budines ");
+  let respuesta = await addDoc(collectionRef, orderData);
+
+  return respuesta.id;
 }
 
 export default database;
