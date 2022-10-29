@@ -76,4 +76,74 @@ export async function createBuyOrder(orderData) {
   return respuesta.id;
 }
 
+export async function exportDataToFirestore() {
+  const data = [
+    {
+      id: 1,
+      title: "Banana con chips",
+      price: "320",
+      description: "Budín casero de banana con chips de chocolate",
+      img: "/assets/Banana.jpg",
+      stock: 4,
+      category: "mezclas",
+    },
+    {
+      id: 2,
+      offer: true,
+      title: "Coco",
+      price: "250",
+      description: "Budín de coco con saborizante y coco rallado",
+      img: "../../assets/Coco.jpg",
+      stock: 5,
+      category: "simples",
+    },
+    {
+      id: 3,
+      title: "Chocolate",
+      price: "300",
+      description: "Budín de chocolate con cacao amargo y trozos de chocolate",
+      img: "../../assets/Chocolate.jpg",
+      stock: 0,
+      category: "simples",
+    },
+    {
+      id: 4,
+      title: "Limón",
+      price: "310",
+      description: "Budín casero de limón con esencia y ralladura de limón",
+      img: "../../assets/Limón.jpg",
+      stock: 7,
+      category: "simples",
+    },
+    {
+      id: 5,
+      title: "Marmolado",
+      price: "330",
+      description:
+        "Budín marmolado, mezcla de sabores vainilla y chocolate amargo",
+      img: "../../assets/Marmolado.jpg",
+      stock: 5,
+      category: "mezclas",
+    },
+    {
+      id: 6,
+      title: "Naranja",
+      price: "310",
+      description:
+        "Budín de naranja, con pulpa, jugo y saborizante de naranja",
+      img: "../../assets/Naranja (3).jpg",
+      stock: 6,
+      category: "simples",
+    },
+  ];
+
+  const collectionRef = collection(database, "budines ");
+
+  for (let item of data) {
+    delete item.id;
+    const newDoc = await addDoc(collectionRef, item);
+    console.log("Doc created", newDoc.id);
+  }
+}
+
 export default database;

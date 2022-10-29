@@ -1,0 +1,19 @@
+.checkout-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 2rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.checkout-text h2 {
+    text-align: center;
+}
+
+
+.order-text {
+    color: red;
+    font-size: 1.8em;
+}

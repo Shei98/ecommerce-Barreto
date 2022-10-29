@@ -2,6 +2,7 @@ import ItemDetail from "./ItemDetail";
 import React, { useState, useEffect } from "react";
 import { getSingleItem } from "../../services/firestore";
 import { useParams } from "react-router-dom";
+import { Momentum } from "@uiball/loaders";
 
 function ItemDetailContainer() {
   const [data, setData] = useState({});
@@ -28,7 +29,7 @@ function ItemDetailContainer() {
             <p>{error} </p>
           </div>
         ) : (
-          <h3>Cargando . . .</h3>
+          <Momentum size={68} speed={1.1} color="orange"/>
         )}
       </>
     );

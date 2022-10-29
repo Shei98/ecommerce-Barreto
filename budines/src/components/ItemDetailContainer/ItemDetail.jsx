@@ -3,6 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
 import { cartCtx } from "../../context/cartContext";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 function ItemDetail({ item }) {
   const [isInCart, setIsInCart] = useState(false);
@@ -32,7 +33,7 @@ function ItemDetail({ item }) {
         )}
 
         {isInCart ? (
-          <Link to="/cart">Ir al carrito</Link>
+          <Link to="/cart"><Button>Ir al carrito</Button> </Link>
         ) : (
           <ItemCount initial={1} stock={item.stock} onAddToCart={handleAddToCart} />
         )}
