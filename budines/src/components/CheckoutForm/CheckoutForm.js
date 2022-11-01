@@ -77,7 +77,7 @@ function CheckoutForm() {
             required
           />
         </div>
-        <Button type="submit">Finalizar Compra</Button>
+        <Button onClick={handleCheckout}>Finalizar Compra</Button>
       </form>
     </div>
   );

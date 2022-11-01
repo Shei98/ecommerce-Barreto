@@ -7,14 +7,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContextProvider from "./context/cartContext";
 import CartView from "./components/CartView/CartView";
 import Checkout from "./components/Checkout/Checkout";
-import { exportDataToFirestore } from "./services/firestore";
 
 function App() {
 
 
   return (
     <CartContextProvider>
-    <button onClick={exportDataToFirestore}>export</button>
       <BrowserRouter>
         <div className="App">
           <Header />

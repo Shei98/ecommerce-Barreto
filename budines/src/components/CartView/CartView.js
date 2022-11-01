@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 
 function CartView() {
   const context = useContext(cartCtx);
-  const { cart, deleteItem, emptyCart } = context;
+  const { cart, deleteItems, emptyCart } = context;
 
   if (cart.length === 0) {
     return (
@@ -45,7 +45,7 @@ function CartView() {
                 <td>$ {item.price}</td>
                 <td>{item.count}</td>
                 <td>
-                  <Button onClick={() => deleteItem(item.id)}>X</Button>
+                  <Button onClick={() => deleteItems(item.id)}>X</Button>
                 </td>
                 <th>El total de tu compra es $ {item.price * item.count}</th>
               </tr>
@@ -53,7 +53,6 @@ function CartView() {
           })}
         </tbody>
       </table>
-
       <CheckoutForm />
       <Link to="/">
         <Button>Seguir navegando</Button>

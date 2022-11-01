@@ -23,7 +23,7 @@ export default function CartContextProvider({ children }) {
   }
 
   function getTotalItemsInCart() {
-    let total = 5;
+    let total = 0;
     cart.forEach((item) => 0);
     return total;
   }
@@ -38,21 +38,27 @@ export default function CartContextProvider({ children }) {
     let found = cart.some((item) => item.id === id);
     return found;
   }
-//  function emptyCart = () => {
-//      return setCart([])
-// }
-// const deleteItems = (id) => {
-//     return  setCart(cart.filter(x => x.id !== id))
-// }
 
+  const emptyCart = () => {
+    setCart([]);
+  }
+
+  const deleteItems = (id) => {
+    return setCart(cart.filter((x) => x.id !== id));
+  };
 
   return (
-    <cartCtx.Provider value={{ 
-      cart, 
-      addItem, 
-      getTotalItemsInCart, 
-      isInCart,
-      getTotalPriceInCart, }}>
+    <cartCtx.Provider
+      value={{
+        cart,
+        addItem,
+        getTotalItemsInCart,
+        isInCart,
+        getTotalPriceInCart,
+        emptyCart,
+        deleteItems,
+      }}
+    >
       {children}
     </cartCtx.Provider>
   );
