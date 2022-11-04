@@ -25,17 +25,9 @@ const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 const myCollection = collection(database, "budines ");
 
-
 export async function getItems() {
-  const querySnapshot = await getDocs(collection(database, "budines "));
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
-  });
-
   let respuesta = await getDocs(myCollection);
-console.log(respuesta, "respuestta");
   let dataDocs = respuesta.docs.map((documento) => {
-    
     let docFormateado = { ...documento.data(), id: documento.id };
     return docFormateado;
   });
@@ -129,8 +121,7 @@ export async function exportDataToFirestore() {
       id: 6,
       title: "Naranja",
       price: "310",
-      description:
-        "Budín de naranja, con pulpa, jugo y saborizante de naranja",
+      description: "Budín de naranja, con pulpa, jugo y saborizante de naranja",
       img: "../../assets/Naranja (3).jpg",
       stock: 6,
       category: "simples",
@@ -141,8 +132,7 @@ export async function exportDataToFirestore() {
 
   for (let item of data) {
     delete item.id;
-    const newDoc = await addDoc(collectionRef, item);
-    console.log("Doc created", newDoc.id);
+    await addDoc(collectionRef, item);
   }
 }
 

@@ -23,9 +23,6 @@ function ItemListContainer() {
         .then((respuestaDatosFiltrados) => setData(respuestaDatosFiltrados))
         .finally(() => setIsLoading(false));
     }
-    return () => {
-      console.log("Componente Item List desmontado");
-    };
   }, [cat]);
 
   return (
@@ -37,9 +34,6 @@ function ItemListContainer() {
           {data.map((item) => {
             return (
               <Item
-                onClickImagen={() => {
-                  console.log("click card");
-                }}
                 key={item.id}
                 offer={item.offer}
                 id={item.id}

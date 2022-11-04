@@ -84,7 +84,6 @@ export function getItemsByCategory(cat) {
       return item.category === cat;
     });
     setTimeout(() => {
-      console.log("Se encontró:", itemFind);
       if (itemFind) resolve(itemFind);
       else reject(new Error("item no encontrado"));
     }, 1500);

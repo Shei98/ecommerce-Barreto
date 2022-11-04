@@ -8,7 +8,7 @@ function NavBar() {
     <div className="nav-bar">
       <ul className="menu">
         <Link to="/">
-          <h2>Mis budines</h2>
+          <h2>Inicio</h2>
         </Link>
         <li>
           <Link to="/category/mezclas">Mezclas</Link>

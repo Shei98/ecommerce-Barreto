@@ -1,5 +1,4 @@
 import "./App.css";
-import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ItemListContainer from "./components/Products/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -9,8 +8,6 @@ import CartView from "./components/CartView/CartView";
 import Checkout from "./components/Checkout/Checkout";
 
 function App() {
-
-
   return (
     <CartContextProvider>
       <BrowserRouter>
@@ -27,7 +24,6 @@ function App() {
             <Route path="/checkout/:orderid" element={<Checkout />} />
             <Route path="*" element={<h1>404: Por acá no es, rey</h1>} />
           </Routes>
-          <Footer />
         </div>
       </BrowserRouter>
     </CartContextProvider>

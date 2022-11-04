@@ -18,7 +18,6 @@ function CheckoutForm() {
 
   function handleCheckout(event) {
     event.preventDefault();
-    /* { buyer: { name, phone, email }, items: [{id, title, price}], total  } */
     const orderData = {
       buyer: dataForm,
       items: cart,

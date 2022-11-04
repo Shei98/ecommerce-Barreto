@@ -40,11 +40,11 @@ export default function CartContextProvider({ children }) {
   }
 
   const emptyCart = () => {
-    setCart([]);
-  }
+    return setCart([]);
+  };
 
   const deleteItems = (id) => {
-    return setCart(cart.filter((x) => x.id !== id));
+    return setCart(cart.filter((item) => item.id !== id));
   };
 
   return (

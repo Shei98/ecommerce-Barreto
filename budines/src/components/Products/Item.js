@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "../Button/Button";
-import ItemCount from "../ItemCount/ItemCount";
 import "./card.css";
 import { Link } from "react-router-dom";
 
@@ -23,7 +22,6 @@ function Item(props) {
       <Link to={urlDetalle}>
         <Button> Ver más </Button>
       </Link>
-      <ItemCount initial={1} stock={stock} />
     </div>
   );
 }

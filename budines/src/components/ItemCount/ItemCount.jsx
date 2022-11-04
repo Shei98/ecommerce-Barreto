@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./itemcount.css";
 
 
 export const ItemCount = ({ initial, stock, onAddToCart }) => {
